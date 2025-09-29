@@ -12,7 +12,7 @@ class ScoreManager {
       this.config = {}
       this.timer = null;
       this.add_vel = 10; // scores to be added per second
-      this.step = 100;
+      this.step = 60;
       this.is_flashing = false;
       this.lvl = 0;
       this.clock = new THREE.Clock();

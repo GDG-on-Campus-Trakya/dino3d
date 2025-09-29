@@ -87,7 +87,7 @@ class GameManager {
 		this.isPlaying = true;
 
 		// set running speed (def 13)
-		enemy.increase_velocity(15, true);
+		enemy.increase_velocity(35, true);
 
         // init score
         score.set(0);

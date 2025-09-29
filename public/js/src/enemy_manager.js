@@ -390,7 +390,7 @@ class EnemyManager {
 	}
 
     increase_velocity(add = 1, init = false) {
-        if(this.config.vel >= 35 && !init)
+        if(this.config.vel >= 75 && !init)
             {return;}
 
         if(init) {
