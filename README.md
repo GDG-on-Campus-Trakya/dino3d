@@ -4,23 +4,16 @@
 T-Rex Run 3D, bir deney olarak yapılmış ThreeJS WebGL oyunudur.
 Tüm grafikler Magica Voxel yazılımı ile elle hazırlanmış, böylece oyunun genel hissi ve görünümü orijinal 2D oyunla aynı kalacak.
 
-*Kod cilalanmamış ve "olduğu gibi" sağlanmıştır. Gereksiz kodlar bulunmakta ve yapılabilecek tonlarca iyileştirme vardır.*
-
 ## Bu Proje Hakkında
 Bu proje, [orijinal T-Rex Run 3D](https://github.com/Priler/dino3d) projesinden **GDG On Campus Trakya** tarafından fork edilmiş ve geliştirilmiştir.
 
 ### Eklenen Özellikler
 - **Dil Güncellemesi**: Kullanıcı arayüzü Türkçe'ye çevrildi
 - **Vite Desteği**: Three.js kullanarak çalışan bir Vite app'ine çevrildi
+- **Liderlik Tablosu**: 
 
 ## Ekran Görüntüsü
 ![T-Rex Run 3D](https://i.imgur.com/fESLYlF.png)
-
-## Değişiklik Geçmişi
-- **GDG On Campus Trakya Güncellemesi**
-  - Liderlik tablosu eklendi
-  - Arayüz Türkçe'ye çevrildi
-  - Kod düzenlemeleri yapıldı
 
 ## Kredi
 https://threejs.org/ - WebGL 3D Kütüphanesi
