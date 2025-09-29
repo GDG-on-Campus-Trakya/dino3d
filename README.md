@@ -10,7 +10,7 @@ Bu proje, [orijinal T-Rex Run 3D](https://github.com/Priler/dino3d) projesinden 
 ### Eklenen Özellikler
 - **Dil Güncellemesi**: Kullanıcı arayüzü Türkçe'ye çevrildi
 - **Vite Desteği**: Three.js kullanarak çalışan bir Vite app'ine çevrildi
-- **Liderlik Tablosu**: 
+- **Liderlik Tablosu**: Yüksek skorların kaydedileceği skor tablosu eklendi
 
 ## Ekran Görüntüsü
 ![T-Rex Run 3D](https://i.imgur.com/fESLYlF.png)
