@@ -6,6 +6,7 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="stylesheet" href="/css/modal.css">
 
 	<!-- Preload -->
 	<link rel="preload" as="image" href="/media/repeat.png" />
@@ -56,6 +57,23 @@
 	<div id="game-restart" class="hidden">
 		<h1>OYUN BİTTİ</h1>
 		<img src="/media/repeat.png">
+		<div class="restart-buttons">
+			<button id="view-leaderboard-btn" class="leaderboard-btn">Liderlik Tablosu</button>
+		</div>
+	</div>
+
+	<!-- Name Input Modal -->
+	<div id="name-input-modal" class="modal hidden">
+		<div class="modal-content">
+			<h2>Tebrikler!</h2>
+			<p>Skorun: <span id="final-score">0</span></p>
+			<p class="modal-subtitle">Liderlik tablosuna girmek için adını gir:</p>
+			<input type="text" id="player-name-input" maxlength="20" placeholder="Adınız..." autocomplete="off">
+			<div class="modal-buttons">
+				<button id="submit-score-btn" class="submit-btn">Kaydet</button>
+				<button id="skip-score-btn" class="skip-btn">Atla</button>
+			</div>
+		</div>
 	</div>
 
 	<!-- Use old Three.js from CDN that supports Geometry -->

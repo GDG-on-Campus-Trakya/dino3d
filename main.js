@@ -24,6 +24,11 @@ async function initGame() {
             logs.enable();
         }
 
+        await loadScript('/js/src/leaderboard_manager.js');
+
+        // Initialize leaderboard
+        window.leaderboard = new LeaderboardManager();
+
         await loadScript('/js/src/input_manager.js');
         await loadScript('/js/src/audio_manager.js');
         await loadScript('/js/src/enemy_manager.js');

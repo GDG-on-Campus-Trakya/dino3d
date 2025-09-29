@@ -194,15 +194,93 @@ class GameManager {
         // stop stuff
         audio.stop('bg');
 
-        // show restart button
-        this.interface.buttons.restart.classList.remove('hidden');
-
         // play kill sound & frame
         player.deathFrame();
         audio.play('killed');
 
+        // Check if score qualifies for leaderboard
+        const finalScore = Math.floor(score.score);
+        if (window.leaderboard && leaderboard.isTopScore(finalScore)) {
+            // Show name input modal
+            this.showNameInputModal(finalScore);
+        } else {
+            // show restart button directly
+            this.interface.buttons.restart.classList.remove('hidden');
+        }
+
         // set starters
         this.setStarter(0);
+    }
+
+    showNameInputModal(finalScore) {
+        const modal = document.getElementById('name-input-modal');
+        const finalScoreSpan = document.getElementById('final-score');
+        const nameInput = document.getElementById('player-name-input');
+        const submitBtn = document.getElementById('submit-score-btn');
+        const skipBtn = document.getElementById('skip-score-btn');
+
+        if (!modal) return;
+
+        finalScoreSpan.textContent = finalScore.toLocaleString('tr-TR');
+        nameInput.value = '';
+        modal.classList.remove('hidden');
+
+        // Focus input
+        setTimeout(() => nameInput.focus(), 100);
+
+        // Block game input while modal is open
+        const blockGameInput = (e) => {
+            // Prevent space and arrow keys from triggering game actions
+            if (e.keyCode === 32 || e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 17) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
+        };
+
+        // Add event listener to block game inputs
+        window.addEventListener('keydown', blockGameInput, true);
+        window.addEventListener('keyup', blockGameInput, true);
+
+        // Handle submit
+        const handleSubmit = () => {
+            const playerName = nameInput.value.trim() || 'Anonymous';
+            if (window.leaderboard) {
+                leaderboard.addScore(playerName, finalScore);
+            }
+            modal.classList.add('hidden');
+            this.interface.buttons.restart.classList.remove('hidden');
+            cleanup();
+        };
+
+        // Handle skip
+        const handleSkip = () => {
+            modal.classList.add('hidden');
+            this.interface.buttons.restart.classList.remove('hidden');
+            cleanup();
+        };
+
+        // Handle enter key
+        const handleEnter = (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleSubmit();
+            }
+        };
+
+        // Cleanup function
+        const cleanup = () => {
+            submitBtn.removeEventListener('click', handleSubmit);
+            skipBtn.removeEventListener('click', handleSkip);
+            nameInput.removeEventListener('keypress', handleEnter);
+            window.removeEventListener('keydown', blockGameInput, true);
+            window.removeEventListener('keyup', blockGameInput, true);
+        };
+
+        // Add event listeners
+        submitBtn.addEventListener('click', handleSubmit);
+        skipBtn.addEventListener('click', handleSkip);
+        nameInput.addEventListener('keypress', handleEnter);
     }
 
     pause() {

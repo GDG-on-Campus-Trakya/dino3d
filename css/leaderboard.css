@@ -1,0 +1,252 @@
+/* Leaderboard Page Styles */
+
+.leaderboard-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.leaderboard-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    animation: slideIn 0.5s ease-out;
+    position: relative;
+}
+
+.easter-egg-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 0 20px 0 0;
+    transition: background 0.2s ease;
+    z-index: 100;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.leaderboard-header h1 {
+    font-size: 28px;
+    color: #667eea;
+    margin: 0 0 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.back-button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.leaderboard-content {
+    margin-bottom: 30px;
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.leaderboard-entry {
+    display: grid;
+    grid-template-columns: 60px 1fr 120px 100px;
+    gap: 15px;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.leaderboard-entry:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.leaderboard-entry.rank-1 {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border: 3px solid #ffa500;
+    font-weight: bold;
+}
+
+.leaderboard-entry.rank-2 {
+    background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+    border: 3px solid #a0a0a0;
+}
+
+.leaderboard-entry.rank-3 {
+    background: linear-gradient(135deg, #cd7f32 0%, #e9a76b 100%);
+    border: 3px solid #b8860b;
+}
+
+.entry-rank {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #667eea;
+}
+
+.rank-1 .entry-rank,
+.rank-2 .entry-rank,
+.rank-3 .entry-rank {
+    font-size: 32px;
+}
+
+.entry-name {
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.entry-score {
+    font-size: 16px;
+    color: #667eea;
+    font-weight: bold;
+    text-align: right;
+}
+
+.entry-date {
+    font-size: 10px;
+    color: #999;
+    text-align: right;
+}
+
+.leaderboard-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.leaderboard-empty p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.leaderboard-empty .small {
+    font-size: 12px;
+}
+
+.leaderboard-empty.hidden {
+    display: none;
+}
+
+.leaderboard-footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+.clear-button {
+    padding: 12px 24px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.clear-button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+}
+
+.clear-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .leaderboard-container {
+        padding: 20px;
+    }
+
+    .leaderboard-header h1 {
+        font-size: 20px;
+    }
+
+    .leaderboard-entry {
+        grid-template-columns: 50px 1fr 100px;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .entry-date {
+        display: none;
+    }
+
+    .entry-name {
+        font-size: 12px;
+    }
+
+    .entry-score {
+        font-size: 14px;
+    }
+
+    .entry-rank {
+        font-size: 20px;
+    }
+
+    .rank-1 .entry-rank,
+    .rank-2 .entry-rank,
+    .rank-3 .entry-rank {
+        font-size: 24px;
+    }
+}

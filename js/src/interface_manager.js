@@ -7,7 +7,8 @@ class InterfaceManager {
     constructor() {
     	this.buttons = {
     		"start": document.getElementById('game-start'),
-    		"restart": document.getElementById('game-restart')
+    		"restart": document.getElementById('game-restart'),
+    		"viewLeaderboard": document.getElementById('view-leaderboard-btn')
     	};
 
     	this.indicators = {
@@ -24,6 +25,10 @@ class InterfaceManager {
     	// hook buttons
     	this.buttons.start.addEventListener('click', this.btnStartClick);
     	this.buttons.restart.addEventListener('click', this.btnRestartClick);
+
+    	if (this.buttons.viewLeaderboard) {
+    		this.buttons.viewLeaderboard.addEventListener('click', this.btnViewLeaderboardClick);
+    	}
     }
 
     btnStartClick(e) {
@@ -37,5 +42,9 @@ class InterfaceManager {
     	game.interface.buttons.restart.classList.add('hidden');
 
    		game.restart();
+    }
+
+    btnViewLeaderboardClick(e) {
+    	window.location.href = '/leaderboard.html';
     }
 }
