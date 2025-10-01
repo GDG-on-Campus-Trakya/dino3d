@@ -45,8 +45,8 @@ async function init() {
   // Initialize leaderboard
   const leaderboardManager = new LeaderboardManager()
 
-  function displayLeaderboard() {
-    const leaderboard = leaderboardManager.getLeaderboard()
+  async function displayLeaderboard() {
+    const leaderboard = await leaderboardManager.getLeaderboard()
     const listElement = document.getElementById('leaderboard-list')
     const emptyElement = document.getElementById('leaderboard-empty')
 
@@ -89,7 +89,7 @@ async function init() {
   let clickTimer = null
   const easterEggTrigger = document.getElementById('easter-egg-trigger')
 
-  easterEggTrigger.addEventListener('click', function() {
+  easterEggTrigger.addEventListener('click', async function() {
     clickCount++
 
     // Reset counter after 1 second
@@ -110,8 +110,8 @@ async function init() {
       easterEggTrigger.style.background = 'rgba(255, 107, 107, 0.5)'
 
       if (confirm('🗑️ Liderlik tablosunu temizlemek istediğinizden emin misiniz?')) {
-        leaderboardManager.clearLeaderboard()
-        displayLeaderboard()
+        await leaderboardManager.clearLeaderboard()
+        await displayLeaderboard()
 
         // Show success message
         easterEggTrigger.style.background = 'rgba(76, 175, 80, 0.5)'
